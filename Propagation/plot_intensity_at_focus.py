@@ -8,7 +8,20 @@ matplotlib.rc('xtick', labelsize=15)
 matplotlib.rc('ytick', labelsize=15)
 matplotlib.rcParams.update({'font.size': 15})
 
-filenames = ["intensityundeformed","intensitycryogenic","intensitycryogenicKh","intensitywater1","intensitywater2"]
+filenames = ["UncorrectedOld/intensityundeformed",
+             "UncorrectedOld/intensitycryogenic",
+             "UncorrectedOld/intensitycryogenicKh",
+             "UncorrectedOld/intensitywater1",
+             "UncorrectedOld/intensitywater2"]
+
+dirdata = "DirData/"
+dirpng = "DirPng/"
+filenames = ["intensity0",
+             "intensity1",
+             "intensity2",
+             "intensity3",
+             "intensity4", ]
+
 rangex=[75,75,60,60]
 rangey=[0.1,0.1,None,None]
 # filename = "cryogenic1d.txt"
@@ -18,20 +31,21 @@ STREHL = []
 
 for i,filename in enumerate(filenames):
 
-    a = numpy.loadtxt(filename+".txt")
+    a = numpy.loadtxt(dirdata+filename+".txt")
     # if rangey[i] is None:
     #     yrange=None
     # else:
     #     yrange = [-rangey[i],rangey[i]]
 
-    fig = plot(a[:,0],a[:,1],xtitle="X [$\mu$m]",ytitle="intensity [a.u.]",show=0) #,xrange=[-rangex[i],rangex[i]],yrange=yrange)
+    fig = plot(a[:,0],a[:,1],xtitle="X [$\mu$m]",ytitle="intensity [a.u.]",
+               figsize=(10,7),show=0) #,xrange=[-rangex[i],rangex[i]],yrange=yrange)
     fig[0].subplots_adjust(bottom=0.15)
 
     print(">>>>>>>",get_fwhm(a[:,1],a[:,0],))
     tmp = get_fwhm(a[:, 1], a[:, 0], )
     FWHM.append(tmp[0])
     STREHL.append(a[:,1].max())
-    plt.savefig(filename+".png")
+    plt.savefig(dirpng+filename+".png")
     print("File %s.png written to file"%filename)
     plt.show()
 
