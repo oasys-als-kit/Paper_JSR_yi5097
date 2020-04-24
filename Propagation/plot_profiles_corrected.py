@@ -8,7 +8,7 @@ matplotlib.rc('xtick',         labelsize=20)
 matplotlib.rc('ytick',         labelsize=20)
 matplotlib.rcParams.update({'font.size': 20})
 
-is_fit = 2
+is_fit = 0
 
 dirdata = "DirData/"
 dirpng = "DirPng/"
@@ -74,5 +74,6 @@ plt.ylabel("height [$\mu$m]")
 
 ax = plt.subplot(111)
 ax.legend(bbox_to_anchor=[.49,.95])
+
 plt.savefig(filepng)
 plt.show()

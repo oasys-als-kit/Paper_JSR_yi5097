@@ -1,0 +1,36 @@
+
+
+     intensity0    FWHM: 3.822000    STREHL: 1.000000
+     intensity1    FWHM: 3.851400    STREHL: 0.990184
+     intensity2    FWHM: 3.910200    STREHL: 0.984328
+     intensity3    FWHM: 8.526000    STREHL: 0.428742
+     intensity4    FWHM: 36.338400    STREHL: 0.109302
+
+
+is_fit=0 (uncorrected):
+
+         cryo H    FWHM: 3.851400    STREHL: 0.990184
+         cryo V    FWHM: 3.910200    STREHL: 0.984328
+        water H    FWHM: 8.526000    STREHL: 0.428742
+        water V    FWHM: 36.338400    STREHL: 0.109302
+
+is_fit=0 (fully corrected):
+         cryo H    FWHM: 3.880800    STREHL: 0.991741
+         cryo V    FWHM: 3.880800    STREHL: 0.990861
+        water H    FWHM: 3.606400    STREHL: 1.055575
+        water V    FWHM: 3.371200    STREHL: 1.145852
+
+is_fit=0 (fitted extrapolated):
+         cryo H    FWHM: 3.880800    STREHL: 0.990955
+         cryo V    FWHM: 3.861200    STREHL: 0.993100
+        water H    FWHM: 4.116000    STREHL: 0.950544
+        water V    FWHM: 3.978800    STREHL: 0.972175
+
+
+is_fit=3 (fitted cropped):
+         cryo H    FWHM: 4.900000    STREHL: 0.777605
+         cryo V    FWHM: 4.900000    STREHL: 0.777328
+        water H    FWHM: 4.821600    STREHL: 0.780559
+        water V    FWHM: 4.625600    STREHL: 0.786650
+
+

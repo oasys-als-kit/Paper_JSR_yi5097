@@ -9,7 +9,7 @@ matplotlib.rc('ytick',         labelsize=20)
 matplotlib.rcParams.update({'font.size': 20})
 
 
-is_fit = 3
+is_fit = 0
 dirdata = "DirData/"
 dirpng = "DirPng/"
 
@@ -72,9 +72,8 @@ for i,filename in enumerate(filenames):
 
 TITLES = ["undeformed","cryo H","cryo V","water H","water V"]
 for i in range(1,len(filenames)):
-    print("%15s    FWHM: %f    STREHL: %f"%(TITLES[i],FWHM[i],STREHL[i]/STREHL[0]))
-    LEGEND.append("%s FWHM:%2.1f SR:%2.1f "%(TITLES[i],FWHM[i],STREHL[i]/STREHL[0]))
-
+    print("%15s    FWHM: %3.2f    STREHL: %3.2f"%(TITLES[i],FWHM[i],STREHL[i]/STREHL[0]))
+    LEGEND.append("%s FWHM:%3.2f SR:%3.2f "%(TITLES[i],FWHM[i],STREHL[i]/STREHL[0]))
 
 fig = plt.figure(figsize=(16,8))
 
@@ -88,6 +87,8 @@ plt.ylim(0,370)
 plt.xlabel("X [$\mu$m]")
 plt.ylabel("intensity [a.u.]")
 
+matplotlib.pylab.grid() #b=True, which='major', color='#666666', linestyle='-', alpha=0.2)
+
 # plt.subplots_adjust(bottom=0.15)
     #
     # xtitle="X [$\mu$m]", ytitle="intensity [a.u.]",legend=LEGEND,
@@ -98,4 +99,6 @@ ax.legend(bbox_to_anchor=[.7,.55])
 
 
 plt.savefig(filepng)
+print("File written to disk: %s " % filepng)
 plt.show()
+

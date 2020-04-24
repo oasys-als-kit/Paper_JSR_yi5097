@@ -41,7 +41,6 @@ for i,filename in enumerate(filenames):
                figsize=(10,7),show=0) #,xrange=[-rangex[i],rangex[i]],yrange=yrange)
     fig[0].subplots_adjust(bottom=0.15)
 
-    print(">>>>>>>",get_fwhm(a[:,1],a[:,0],))
     tmp = get_fwhm(a[:, 1], a[:, 0], )
     FWHM.append(tmp[0])
     STREHL.append(a[:,1].max())
