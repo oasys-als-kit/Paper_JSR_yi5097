@@ -25,7 +25,7 @@ def undulator_radiation(Kh=0.0, Kv=0.0, Phase=0.0, h5file="tmp.h5"):
             GAPV                     = 0.015,
             HSLITPOINTS              = 49, #101, #151,
             VSLITPOINTS              = 49, #101, #151,
-            METHOD                   = 1, # 1=Urgent, 2=SRW, 3=pySRU
+            METHOD                   = 2, # 1=Urgent, 2=SRW, 3=pySRU
             PHOTONENERGYMIN          = 200.0,
             PHOTONENERGYMAX          = 12000.0,
             PHOTONENERGYPOINTS       = 1500,
@@ -44,7 +44,9 @@ def undulator_radiation(Kh=0.0, Kv=0.0, Phase=0.0, h5file="tmp.h5"):
 #
 if __name__ == "__main__":
     # undulator_radiation(Kh=3.07, Kv=0.0, Phase=0.0, h5file="undulator_radiation_flexon_Kh.h5")
-    undulator_radiation(Kh=0.0,  Kv=3.7, Phase=0.0, h5file="undulator_radiation_flexon_Kv_urgent.h5")  # with pySRY - same as undulator_radiation_flexon_grant4.h5
-
-    # undulator_radiation(Kh=2.171, Kv=2.171, Phase=numpy.pi/2, h5file="undulator_radiation_flexon_KhKv90.h5")
     # undulator_radiation(Kh=2.171, Kv=2.171, Phase=0.0, h5file="undulator_radiation_flexon_KhKv.h5")
+
+
+    # undulator_radiation(Kh=0.0,  Kv=3.07, Phase=0.0, h5file="undulator_radiation_flexon_Kv_urgent2.h5")  # with pySRY - same as undulator_radiation_flexon_grant4.h5
+    # undulator_radiation(Kh=3.07,  Kv=0.0, Phase=0.0, h5file="undulator_radiation_flexon_Kh_urgent2.h5")
+    undulator_radiation(Kh=2.171, Kv=2.171, Phase=numpy.pi/2, h5file="undulator_radiation_flexon_KhKv90.h5")
