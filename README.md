@@ -1,6 +1,6 @@
 # Paper_JSR_yi5097
 
-Public Archive with scripts and OASYS workspaces used in the paper:
+Public Archive with scripts and OASYS workspaces (in https://github.com/srio/Paper_JSR_yi5097/tree/master/Oasys) used in the paper:
 
 Manuel Sanchez del Rio, Antoine Wojdyla, Kenneth Goldberg, Grant Cutler, Daniele Cocco and
 Howard Padmore
