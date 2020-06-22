@@ -1,14 +1,17 @@
 import numpy
-from srxraylib.plot.gol import  plot
+from srxraylib.plot.gol import  plot, set_qt
 import matplotlib.pylab as plt
 
+set_qt()
 import matplotlib
-matplotlib.rc('xtick', labelsize=15)
-matplotlib.rc('ytick', labelsize=15)
-matplotlib.rcParams.update({'font.size': 15})
+labelsize=25
+figsize=(11,7)
+matplotlib.rc('xtick', labelsize=labelsize)
+matplotlib.rc('ytick', labelsize=labelsize)
+matplotlib.rcParams.update({'font.size': labelsize})
 
 dirdata = "DirData/"
-dirpng = "DirPng/"
+dirpng = "DirFigures/"
 
 filenames = ["deformation1",
              "deformation2",
@@ -28,9 +31,9 @@ for i,filename in enumerate(filenames):
 
     fig = plot(1e3*a[:,0],1e6*a[:,1],xtitle="w [mm]",ytitle="height [$\mu$m]",
                xrange=[-rangex[i],rangex[i]],yrange=yrange,
-               figsize=(10,7),show=0)
+               figsize=figsize,show=0)
     fig[0].subplots_adjust(bottom=0.15)
 
-    plt.savefig(dirpng+filename+".png")
-    print("File %s/%s.png written to file"%(dirpng,filename))
+    plt.savefig(dirpng+filename+".pdf")
+    print("File %s/%s.pdf written to file"%(dirpng,filename))
     plt.show()

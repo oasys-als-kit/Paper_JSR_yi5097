@@ -1,16 +1,17 @@
-from srxraylib.plot.gol import plot
+from srxraylib.plot.gol import plot, set_qt
 import matplotlib.pylab as plt
 import numpy
 
-
+labelsize=25
+figsize=(12,8)
 import matplotlib
 import matplotlib.pylab as plt
-matplotlib.rc('xtick',         labelsize=20)
-matplotlib.rc('ytick',         labelsize=20)
-matplotlib.rcParams.update({'font.size': 20})
+matplotlib.rc('xtick',         labelsize=labelsize)
+matplotlib.rc('ytick',         labelsize=labelsize)
+matplotlib.rcParams.update({'font.size': labelsize})
 
 
-
+set_qt()
 
 #
 #
@@ -23,17 +24,18 @@ fm = plot(numpy.abs(am[:,0]),  am[:,1]  / am[-1,1],
           numpy.abs(amC[:,0]), amC[:,1] / am[-1,1],
           numpy.abs(amR[:,0]), amR[:,1] / am[-1,1],
           numpy.abs(amE[:,0]), amE[:,1] / am[-1,1],
-          xlog=True,figsize=(12,8),
+          xlog=True,figsize=figsize,
           legend=["Uncorrected",
                   "Corrected (ideal)",
                   "Corrected (cropped)",
                   "Corrected (extrapolated)"],
+          legend_position=[0.35, 0.635],
           xtitle="Radius [m]",ytitle="Strehl Ratio I/I0",xrange=[60,1e6], show=0)
 
 matplotlib.pylab.grid() #b=True, which='major', color='#666666', linestyle='-', alpha=0.2)
-filepng = "scan_peak_vs_positive_radius.png"
-fm[0].savefig(filepng)
-print("File written to disk: %s" % filepng)
+filefig = "scan_peak_vs_positive_radius.pdf"
+fm[0].savefig(filefig)
+print("File written to disk: %s" % filefig)
 plt.show()
 
 #
@@ -48,17 +50,18 @@ fm = plot(numpy.abs(am[:,0]),  am[:,1]  / am[-1,1],
           numpy.abs(amC[:,0]), amC[:,1] / am[-1,1],
           numpy.abs(amR[:,0]), amR[:,1] / am[-1,1],
           numpy.abs(amE[:,0]), amE[:,1] / am[-1,1],
-          xlog=True,figsize=(12,8),
+          xlog=True,figsize=figsize,
           legend=["Uncorrected",
                   "Corrected (ideal)",
                   "Corrected (cropped)",
                   "Corrected (extrapolated)"],
+          legend_position=[0.5,0.635],
           xtitle="Radius [m]",ytitle="Strehl Ratio I/I0",xrange=[60,1e6], show=0)
 
 matplotlib.pylab.grid()
-filepng = "scan_peak_vs_negative_radius.png"
-fm[0].savefig(filepng)
-print("File written to disk: %s" % filepng)
+filefig = "scan_peak_vs_negative_radius.pdf"
+fm[0].savefig(filefig)
+print("File written to disk: %s" % filefig)
 plt.show()
 
 
@@ -87,9 +90,9 @@ if False:
               title="1230.888 eV")
 
     matplotlib.pylab.grid() #b=True, which='major', color='#666666', linestyle='-', alpha=0.2)
-    filepng = "scan_peak_vs_positive_radius_1230eV.png"
-    fm[0].savefig(filepng)
-    print("File written to disk: %s" % filepng)
+    filefig = "scan_peak_vs_positive_radius_1230eV.png"
+    fm[0].savefig(filefig)
+    print("File written to disk: %s" % filefig)
     plt.show()
 
     #
@@ -112,8 +115,8 @@ if False:
               title="1230.888 eV")
 
     matplotlib.pylab.grid() #b=True, which='major', color='#666666', linestyle='-', alpha=0.2)
-    filepng = "scan_peak_vs_negative_radius_1230eV.png"
-    fm[0].savefig(filepng)
-    print("File written to disk: %s" % filepng)
+    filefig = "scan_peak_vs_negative_radius_1230eV.png"
+    fm[0].savefig(filefig)
+    print("File written to disk: %s" % filefig)
     plt.show()
 

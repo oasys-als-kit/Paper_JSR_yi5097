@@ -1,12 +1,16 @@
-from srxraylib.plot.gol import plot
+from srxraylib.plot.gol import plot, set_qt
 import matplotlib.pylab as plt
 import numpy
 
+set_qt()
+
+labelsize=25
+figsize=(12,8)
 
 import matplotlib
-matplotlib.rc('xtick',         labelsize=20)
-matplotlib.rc('ytick',         labelsize=20)
-matplotlib.rcParams.update({'font.size': 20})
+matplotlib.rc('xtick',         labelsize=labelsize)
+matplotlib.rc('ytick',         labelsize=labelsize)
+matplotlib.rcParams.update({'font.size': labelsize})
 
 
 # ap = numpy.loadtxt( "flexon_ken_memo2_factor1_fit.dat", skiprows=1)
@@ -27,17 +31,18 @@ fm =    plot(am[:,0],   am[:,1] / 212.6,
              # amC10[:, 0], amC10[:, 1] / 212.6,
              amR[:,0], amR[:,1] / 212.6,
              amE[:,0], amE[:,1] / 212.6,
-             xlog=False,figsize=(12,8),
+             xlog=False,figsize=figsize,
              legend=["Uncorrected               ",
                      "Corrected (ideal)         ",
                      # "Corrected (ideal 10)         ",
                      "Corrected (cropped)       ",
                      "Corrected (extrapolated)  ",],
+             legend_position=[0.7, 0.425],
              xtitle="Number of ripples in mirror length",ytitle="Strehl Ratio I/I0",
-             xrange=[0,25], yrange=[0,1.09], show=0)
+             xrange=[0,25], yrange=[-0.09,1.09], show=0)
 
 matplotlib.pylab.grid(b=True, which='major', color='#666666', linestyle='-', alpha=0.2)
-filename = "scan_peak_vs_cos50.png"
+filename = "scan_peak_vs_cos50.pdf"
 fm[0].savefig(filename)
 print("File written to disk: %s "%filename)
 matplotlib.pylab.show()
@@ -80,16 +85,17 @@ fm =    plot(am[:,0],   am[:,1] / 212.6,
              amC[:,0], amC[:,1] / 212.6,
              amR[:,0], amR[:,1] / 212.6,
              amE[:,0], amE[:,1] / 212.6,
-             xlog=False,figsize=(12,8),
+             xlog=False,figsize=figsize,
              legend=["Uncorrected               ",
                      "Corrected (ideal)         ",
                      "Corrected (cropped)       ",
                      "Corrected (extrapolated)  ",],
+             legend_position=[0.8, 0.5],
              xtitle="Number of ripples in mirror length",ytitle="Strehl Ratio I/I0",
              xrange=[0,25], yrange=[0,1.09], show=0)
 
 matplotlib.pylab.grid(b=True, which='major', color='#666666', linestyle='-', alpha=0.2)
-filename = "scan_peak_vs_cos30.png"
+filename = "scan_peak_vs_cos30.pdf"
 fm[0].savefig(filename)
 print("File written to disk: %s "%filename)
 matplotlib.pylab.show()

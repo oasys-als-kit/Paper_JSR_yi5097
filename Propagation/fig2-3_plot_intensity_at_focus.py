@@ -1,12 +1,16 @@
 import numpy
-from srxraylib.plot.gol import  plot
+from srxraylib.plot.gol import  plot, set_qt
 import matplotlib.pylab as plt
 from oasys.util.oasys_util import get_fwhm
 
+set_qt()
+
+labelsize=25
+figsize=(11,7)
 import matplotlib
-matplotlib.rc('xtick', labelsize=15)
-matplotlib.rc('ytick', labelsize=15)
-matplotlib.rcParams.update({'font.size': 15})
+matplotlib.rc('xtick', labelsize=labelsize)
+matplotlib.rc('ytick', labelsize=labelsize)
+matplotlib.rcParams.update({'font.size': labelsize})
 
 filenames = ["UncorrectedOld/intensityundeformed",
              "UncorrectedOld/intensitycryogenic",
@@ -15,7 +19,7 @@ filenames = ["UncorrectedOld/intensityundeformed",
              "UncorrectedOld/intensitywater2"]
 
 dirdata = "DirData/"
-dirpng = "DirPng/"
+dirpng = "DirFigures/"
 filenames = ["intensity0",
              "intensity1",
              "intensity2",
@@ -32,20 +36,16 @@ STREHL = []
 for i,filename in enumerate(filenames):
 
     a = numpy.loadtxt(dirdata+filename+".txt")
-    # if rangey[i] is None:
-    #     yrange=None
-    # else:
-    #     yrange = [-rangey[i],rangey[i]]
 
     fig = plot(a[:,0],a[:,1],xtitle="X [$\mu$m]",ytitle="intensity [a.u.]",
-               figsize=(10,7),show=0) #,xrange=[-rangex[i],rangex[i]],yrange=yrange)
+               figsize=figsize,show=0)
     fig[0].subplots_adjust(bottom=0.15)
 
     tmp = get_fwhm(a[:, 1], a[:, 0], )
     FWHM.append(tmp[0])
     STREHL.append(a[:,1].max())
-    plt.savefig(dirpng+filename+".png")
-    print("File %s.png written to file"%filename)
+    plt.savefig(dirpng+filename+".pdf")
+    print("File %s.pdf written to file"%filename)
     plt.show()
 
 

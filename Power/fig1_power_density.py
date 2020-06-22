@@ -4,13 +4,17 @@
 from orangecontrib.xoppy.util.xoppy_undulators import xoppy_calc_undulator_power_density
 import numpy
 
-from srxraylib.plot.gol import plot_image
+from srxraylib.plot.gol import plot_image, set_qt
 import matplotlib.pylab as plt
 import matplotlib
 
-matplotlib.rc('xtick', labelsize=20)
-matplotlib.rc('ytick', labelsize=20)
-matplotlib.rcParams.update({'font.size': 20})
+set_qt()
+labelsize = 25
+figsize=(12, 8)
+
+matplotlib.rc('xtick', labelsize=labelsize)
+matplotlib.rc('ytick', labelsize=labelsize)
+matplotlib.rcParams.update({'font.size': labelsize})
 
 def power_density(Kh=0.0, Kv=0.0, Phase=0.0, pngfile="tmp.png"):
     h5_parameters = dict()
@@ -78,7 +82,7 @@ def power_density(Kh=0.0, Kv=0.0, Phase=0.0, pngfile="tmp.png"):
 
 
     plot_image(p, h, v, xtitle="H [mm]", ytitle="V [mm]", title="", aspect='auto', cmap='jet', show=0,
-               figsize=(16, 8))
+               figsize=figsize)
 
     plt.savefig(pngfile)
     plt.show()
@@ -88,7 +92,7 @@ def power_density(Kh=0.0, Kv=0.0, Phase=0.0, pngfile="tmp.png"):
     #
 
 if __name__ == "__main__":
-    power_density(Kh=3.07, Kv=0.0, Phase=0.0, pngfile="powerdensityKh.png")
-    power_density(Kh=0.0,  Kv=3.7, Phase=0.0, pngfile="powerdensityKv.png")
-    power_density(Kh=2.171, Kv=2.171, Phase=0.0, pngfile="powerdensityKhKv.png")
-    power_density(Kh=2.171, Kv=2.171, Phase=numpy.pi/2, pngfile="powerdensityKhKv90.png")
+    power_density(Kh=3.07, Kv=0.0, Phase=0.0, pngfile="powerdensityKh.pdf")
+    power_density(Kh=0.0,  Kv=3.7, Phase=0.0, pngfile="powerdensityKv.pdf")
+    power_density(Kh=2.171, Kv=2.171, Phase=0.0, pngfile="powerdensityKhKv.pdf")
+    power_density(Kh=2.171, Kv=2.171, Phase=numpy.pi/2, pngfile="powerdensityKhKv90.pdf")
