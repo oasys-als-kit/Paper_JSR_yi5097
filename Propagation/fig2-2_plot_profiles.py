@@ -21,6 +21,7 @@ rangex=[75,75,60,60]
 rangey=[0.25,0.25,None,None]
 # filename = "cryogenic1d.txt"
 
+RMS_VALUES = []
 for i,filename in enumerate(filenames):
 
     a = numpy.loadtxt(dirdata+filename+".txt")
@@ -37,3 +38,17 @@ for i,filename in enumerate(filenames):
     plt.savefig(dirpng+filename+".pdf")
     print("File %s/%s.pdf written to file"%(dirpng,filename))
     plt.show()
+
+    nn = a[:,1].size
+    tmp = 1e9*a[(nn//2):,1].copy()
+    print(tmp.shape,nn)
+    # plot(numpy.arange(tmp.size),tmp)
+    rms = numpy.zeros_like(tmp)
+    for j in range(tmp.size):
+        rms[j] = tmp[0:j].std()
+    plot(numpy.arange(tmp.size),rms)
+    RMS_VALUES.append(rms[-1])
+    print(">>>>>",rms.shape,rms[-1])
+
+print("RMS values: ",RMS_VALUES)
+

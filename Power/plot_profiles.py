@@ -1,5 +1,5 @@
 import numpy
-from srxraylib.plot.gol import  plot
+from srxraylib.plot.gol import  plot, set_qt
 import matplotlib.pylab as plt
 
 import matplotlib
@@ -7,7 +7,7 @@ matplotlib.rc('xtick', labelsize=25)
 matplotlib.rc('ytick', labelsize=25)
 matplotlib.rcParams.update({'font.size': 25})
 
-
+set_qt()
 filenames = ["deformationcryogenic1d","deformationcryogenic1dKh","deformationwater1_1d","deformationwater2_1d"]
 rangex=[75,75,60,60]
 rangey=[0.25,0.25,None,None]
@@ -26,6 +26,6 @@ for i,filename in enumerate(filenames):
                show=0)
     fig[0].subplots_adjust(bottom=0.15)
 
-    plt.savefig(filename+".png")
-    print("File %s.png written to file"%filename)
+    # plt.savefig(filename+".png")
+    # print("File %s.png written to file"%filename)
     plt.show()
