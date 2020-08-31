@@ -6,6 +6,11 @@ Manuel Sanchez del Rio, Antoine Wojdyla, Kenneth Goldberg, Grant Cutler, Daniele
 Howard Padmore
 
 Compensation of heat load deformations using adaptive optics for the ALS upgrade: a wave optics
-study. To be published in Journal of Synchrotron Radiation.
+study
+
+Journal of Synchrotron Rad. (2020). 27, 1141-1152
+
+https://doi.org/10.1107/S1600577520009522
+
 
 To correctly run the OASYS workspaces, please install the OASYS add-on: OASYS1-ALS-ShadowOui
