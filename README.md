@@ -2,7 +2,7 @@
 
 Public Archive with scripts and OASYS workspaces for the paper:
 
-Compensation of heat load deformations using adaptive optics for the ALS upgrade: a wave optics study
+## Compensation of heat load deformations using adaptive optics for the ALS upgrade: a wave optics study
 
 Journal of Synchrotron Rad. (2020). 27, 1141-1152
 
@@ -14,5 +14,6 @@ A realistic wave optics simulation method has been developed to study how wavefr
 
 Keywords: X-ray optics; simulations; heat load; adaptive optics; diffraction-limited storage ring; soft X-rays; beamlines; wave optics; WOFRY; OASYS.
 
-
-To correctly run the OASYS workspaces, please install the OASYS add-on: OASYS1-ALS-ShadowOui
+## OASYS Workspaces
+To correctly run the OASYS workspaces, please install the OASYS add-on: OASYS1-ALS-ShadowOui:
+https://github.com/oasys-als-kit/OASYS1-ALS-ShadowOui
